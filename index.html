@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercitii Azimut</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>Exercitii tipice primite la interviuri</h1>
+    <div class="container">
+        <h2>Raspunsuri</h2>
+        <div class="raspunsuri">
+            <p class="disclaimer">Disclaimer: Raspunsurile afisate nu reprezinta singurele solutii la problemele
+                prezentate!</p>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Scrieti o functie care sa adauge o clasa unui anumit element selectat.</p>
+                <div class="cod">
+                    <pre>function adaugaClasa(selector, numeClasa) {
+	const element = document.querySelector(selector); //"body"
+	element.classList.add(numeClasa);
+}
+
+adaugaClasa("body", "test-body");</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Explicati diferentele dintre variabile nedefinite (undefined), nule (null) si
+                    nedeclarate (not declared/undeclared).</p>
+                <div class="cod">
+                    <ul>
+                        <li>Valoarea <strong>Null</strong> reprezinta o valoare absenta, intentionata.</li>
+                        <li>Valoarea <strong>Undefined</strong> reprezinta o variabila careia nu i s-a atribuit nicio
+                            valoare inca.</li>
+                        <li>Valoarea <strong>Undeclared</strong> reprezinta o variabila care nu a fost declarata
+                            corespunzator cu unul din cuvintele rezervate.</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Cum poti sterge elementele duplicate dintr-un sir (array) ?</p>
+                <div class="cod">
+                    <pre>const nume = ["Mike", "Adam", "Nancy", "Adam", "Jenny", "Nancy", "Carl"];
+
+// Utilizand filter -> versiunea 1
+const numeFiltrate = nume.filter(function (element, index, sirComplet) {
+	return sirComplet.indexOf(element) == index;
+});
+
+
+// Utilizand for -> versiunea 2
+let numeUniceFor = [];
+for (i = 0; i < nume.length; i++) {
+	let elementCurent = nume[i];
+	if (numeUniceFor.indexOf(elementCurent) < 0) {
+		numeUniceFor.push(elementCurent);
+	}
+}
+
+// Utilizand forEach -> versiunea 3</0>
+let numeUnice = [];
+nume.forEach(function (element) {
+	if (numeUnice.includes(element) === false) {
+		numeUnice.push(element);
+	}
+});
+</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Cum adaugi un element la inceputul unui sir de elemente? Dar la sfarsitul lui?</p>
+                <div class="cod">
+                    <pre>let listaMea = ["a", "b", "c", "d"];
+                    // Adaugarea unui element la sfarsit (3 variante)
+listaMea.push("end");
+listaMea[listaMea.length] = "end";
+listaMea = listaMea.concat("end");
+
+// Adaugarea unui element la inceput (2 variante)
+listaMea = ["start"].concat(listaMea);
+listaMea.unshift("start");</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Scrieti o functie care inverseaza ordinea cuvintelor dintr-un sir de caractere.</p>
+                <div class="cod">
+                    <pre>const propozitie = "Welcome to this Javascript Guide!";
+
+function inverseaza(string, separator) {
+	return string.split(separator).reverse().join(separator);
+}
+
+const propozitieInversata = inverseaza(propozitie, " ");</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Cum putem extrage cel mai mic si cel mai mare numar dintr-un sir de numere?</p>
+                <div class="cod">
+                    <pre>
+// Prima varianta: functie care contine o instructiune de ciclare care returneaza un obiect ce contine cele 2 valori
+function maxMinValue(arr) {
+	let max = arr[0];
+	let min = arr[0];
+
+	for (let i = 0; i < arr.length; i++) {
+		if (arr[i] > max) {
+			max = arr[i];
+		}
+
+		if (arr[i] < min) {
+			min = arr[i];
+		}
+	}
+	return { max, min };
+}
+
+// A doua varianta: functie care se foloseste de obiectul Math
+function minMaxValue(arr) {
+    const min = Math.min.apply(Math, array);
+    const max = Math.max.apply(Math, array);
+    return { max, min };
+}
+
+// A treia varianta: functie care foloseste metoda sort
+function minMaxValue(arr) {
+    const sirSortat = arr.sort();
+    const min = sirSortat[0];
+    const max = sirSortat[arr.length - 1];
+    return { max, min };
+}</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Ce va afisa urmatorul cod?
+                    <pre>let numar = 30;
+if (numar === 30) {
+  let numar = 31;
+  console.log(numar);
+}
+console.log(numar);
+</pre>
+                </p>
+                <div class="cod">
+                    <pre>
+31
+30</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Ce va afisa urmatorul cod?
+                    <pre>console.log("Welcome to JS world"[0]);</pre>
+                </p>
+                <div class="cod">
+                    <pre>W</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Cum verificam daca un sir de caractere contine un alt sir de caractere?</p>
+                <div class="cod">
+                    <pre>
+const mainString = "hello";
+const subString = "hell";
+
+// Varianta 1 -> folosind includes
+console.log(mainString.includes(subString));
+
+// Varianta 2 -> folosind indexOf
+console.log(mainString.indexOf(subString) !== -1);</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Cum putem transforma doar prima litera dintr-un sir de caractere in litera mare?
+                </p>
+                <div class="cod">
+                    <pre>
+function capitalizeFirstLetter(string) {
+	return string[0].toUpperCase() + string.slice(1);
+}
+
+const rezultat = capitalizeFirstLetter("alOoOOoOooo");</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Cum putem compara 2 obiecte de tip Date, sa vedem daca sunt la fel sau nu ?</p>
+                <div class="cod">
+                    <pre>
+const d1 = new Date();
+const d2 = new Date(2022, 08, 10);
+console.log(d1.getTime() === d2.getTime()); //True
+console.log(d1 === d2); // False</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Cum putem insera un script dinamic in pagina? Dar un fisier css?</p>
+                <div class="cod">
+                    <pre>
+function insereazaCss() {
+	const fileReference = document.createElement("link");
+    fileReference.setAttribute("rel", "stylesheet");
+    fileReference.setAttribute("href", "test-css.css");  // fisierul test-css.css trebuie sa existe deja in codul nostru pentru a nu primi erori
+	document.querySelector("head").appendChild(fileReference);
+}
+
+function insereazaJs() {
+	const fileReference = document.createElement("script");
+    fileReference.setAttribute("src", "script-test.js"); // fisierul script-text.js trebuie sa existe deja in codul nostru pentru nu a primi erori
+	document.querySelector("head").appendChild(fileReference);
+}
+
+insereazaCss();
+insereazaJs();</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Care sunt cele 3 pop-up boxes puse la dispozitie de JavaScript? </p>
+                <div class="cod">
+                    <pre>alert(), prompt(), confirm()</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Cum putem goli un sir de elemente?</p>
+                <div class="cod">
+                    <pre>
+let arr = [1, 2, 3, 4];
+
+// Varianta 1
+arr.length = 0;
+
+// Varianta 2
+arr = [];
+
+// Varianta 3
+while (arr.length > 0) {
+    arr.pop();
+}</pre>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Care sunt diferentele dintre urmatorii operatori: =, == si ===?</p>
+                <div class="cod">
+                    <ul>
+                        <li><strong>=</strong> este un operator de atribuire a unei valori unei variabile</li>
+                        <li><strong>==</strong> este un operator de comparatie (nu compara si tipul de date)</li>
+                        <li><strong>===</strong> este un operator strict de comparatie (compara si tipul de date)</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="raspuns">
+                <p class="intrebare">&#10003; Scrieti o instructiune de ciclare care sa afiseze pe consola fiecare numar
+                    divizibil cu 2 intre 1 si 20.</p>
+                <div class="cod">
+                    <pre>
+for (let i = 1; i < 21; i++) {
+	if (i % 2 === 0) {
+	   console.log(i)
+	}
+}</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
